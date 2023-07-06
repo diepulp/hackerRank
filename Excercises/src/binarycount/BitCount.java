@@ -1,4 +1,4 @@
-package binaryCount;
+package binarycount;
 
 public class BitCount {
     public static void main(String[] args) {
