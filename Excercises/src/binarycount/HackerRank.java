@@ -53,74 +53,19 @@ public class HackerRank {
      */
     public static void querySequence() {
         Scanner in = new Scanner(System.in);
-
-        // collect the input from the user for the t iterations
-        System.out.println("Enter t: ");
-        int t;
-
-        // check if the input exists
-        while (in.hasNext()){
-            // validate t for an integer
-            try {
-                if (in.hasNextInt()){
-                    do {
-                        System.out.println("Enter the integer value for t: ");
-                        t = in.nextInt();
-                    } while (t > 0 && t <= 500);
-                } else {
-                    System.out.println("Invalid input, try again");
-                }
-            } catch (InputMismatchException ie){
-                System.out.println("The t must be an integer");
+        StringBuilder sb = new StringBuilder();
+        int q;
+        do {
+            System.out.println("Enter the number of iterations: ");
+            while (!in.hasNextInt()){
+                System.out.println("An integer is required:");
                 in.nextLine();
             }
-            //check for constraints at least once
+            q = in.nextInt();
 
-        }
+        }while(q <= 0 || q > 500);
 
-
+        System.out.println("The number of iterations: " + q);
     }
 
 }// end of class
-
-
-/**
- while (true){
- if (t <= 0 || t >= 500){
- System.out.println("Number of iterations? : ");
- t = in.nextInt();
- } else {
- StringBuilder sb = new StringBuilder();
-
- for (int i = 0; i < t; i++) {
- // trims the string builder to append the last value of the sequence
- sb.setLength(0);
- System.out.println("Enter the a value:");
- int a = in.nextInt();
- System.out.println("Enter the b value:");
- int b = in.nextInt();
- System.out.println("Enter the n value:");
- int n = in.nextInt();
- // (a < 0 || a > 50) || (b <= 0 || b > 50) || (n <= 0 || n > 15)
- while (true) {
- if (a <= 0 || a > 50){
- System.out.println("Enter the a value:");
- a = in.nextInt();
- } else if (b <= 0 || b > 50 ){
- System.out.println("Enter the b value:");
- b = in.nextInt();
- } else if (n <= 0 || n > 10){
- System.out.println("Enter the n value:");
- n = in.nextInt();
- } else {
- for (int j = 0; j < n; j++) {
- sb.append((int) (a + b * (Math.pow(2, j + 1) - 1))).append(" ");
- }
- System.out.println(sb);
- break;
- }
- }
- }
- }
- }
- */
