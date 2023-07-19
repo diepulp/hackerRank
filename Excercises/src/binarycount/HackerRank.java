@@ -65,7 +65,32 @@ public class HackerRank {
 
         }while(q <= 0 || q > 500);
 
-        System.out.println("The number of iterations: " + q);
+        for (int i = 1; i <= q; i++) {
+            int a = getValidatedInt("Enter a", 0, 50, in);
+            int b = getValidatedInt("Enter b: ", 0, 50, in);
+            int n = getValidatedInt("Enter n: ", 1, 15, in);
+            sb.setLength(0);
+            for (int j = 0; j < n; ++j){
+                sb.append((int) (a + b * (Math.pow(2, (j + 1)-1 ))))
+                        .append(" ");
+            }
+            System.out.println(sb);
+        }
+    }
+
+    public static int getValidatedInt(String prompt, int min, int max, Scanner in){
+        int num;
+        do {
+            System.out.println(prompt);
+            while (!in.hasNextInt()) {
+                System.out.println("An integer is required");
+                in.next(); // Consume the invalid input to avoid an infinite loop
+            }
+            num = Integer.parseInt(in.next()); // next returns a string, parse int is necessary
+            in.nextLine();
+        } while (num < min && num >= max);
+
+        return num;
     }
 
 }// end of class
